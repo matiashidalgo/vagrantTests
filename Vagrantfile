@@ -100,6 +100,10 @@ VAGRANTFILE_API_VERSION = "2"
         config.vm.network "private_network", ip: "33.33.33.100"
         config.vm.network "public_network", ip: "192.168.10.250" , bridge: 'eth0'
 
+        config.vm.provider :virtualbox do |virtualbox|
+            virtualbox.customize ["modifyvm", :id, "--name", "debian7-LB"]
+        end
+
         # load local customizations if available
         _local = File.dirname(__FILE__) + '/Vagrantfile.debian.local'
         if File.exists?(_local) and File.readable?(_local)

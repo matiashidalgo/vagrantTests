@@ -18,8 +18,11 @@ then
   touch /home/vagrant/log/miscconfiguration
 fi
 
+#Install build tools
+source ${PROVISIONERS_FOLDER}build-tools/install.sh
+
 #Install Nginx
-source ${PROVISIONERS_FOLDER}nginx/install.sh
+source ${PROVISIONERS_FOLDER}nginx/installBuilding.sh
 
 #Install VIM
 source ${PROVISIONERS_FOLDER}vim/install.sh
